@@ -1,8 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+const usersRouter = require('./routes/users');
 
 const app = express();
-const PORT = process.argv[2] ? parseInt(process.argv[2], 10) : 3000;
+let PORT = 3000;
+if (process.env.PORT) {
+    PORT = parseInt(process.env.PORT, 10);    
+}else if (process.argv[2]) {
+   PORT = parseInt(process.argv[2], 10);
+}
+console.log(`Configured port ${PORT}...`);
 
 // Enable CORS for any protocol on localhost or 127.0.0.1
 app.use(cors({
@@ -20,10 +27,13 @@ app.use(cors({
     }
 }));
 
+app.use(express.json());
+app.use('/api/users', usersRouter);
+
 app.get('/', (req, res) => {
     res.send('Express server running with CORS enabled for same domain.');
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
