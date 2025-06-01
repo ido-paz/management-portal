@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>User Management</h1>
+    </header>
+    <div class="container">
+        <div class="form-section">
+            <h2>Add User</h2>
+            <form id="userForm">
+                <div class="form-row">
+                    <input type="email" id="email" placeholder="Enter user email" required>
+                    <input type="submit" value="Add User">
+                </div>
+            </form>
+        </div>
+        <div class="list-section">
+            <h2>User List</h2>
+            <ul id="userList" class="user-list"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
