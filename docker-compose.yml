@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  user-manager-dotnet-api:
+    build:
+      context: ./dotNetServer
+    image: user-manager-dotnet-api
+    environment:
+      - PORT=3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./dotNetServer/users.json:/app/users.json
+
+  user-manager-vanila-client:
+    build:
+      context: ./vanilaClient
+    image: user-manager-vanila-client
+    ports:
+      - "8080:8080"
+    depends_on:
+      - user-manager-dotnet-api
