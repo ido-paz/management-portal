@@ -3,28 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Management</title>
+    <title>Management Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>User Management</h1>
+        <h1>Management Portal</h1>
+         <nav style="margin-bottom: 2em;">
+        <a href="#" id="showUsersLink">Users</a> |
+        <a href="#" id="showLocationsLink">Locations</a>
+    </nav>
     </header>
+   
     <div class="container">
-        <div class="form-section">
-            <h2>Add User</h2>
-            <form id="userForm">
-                <div class="form-row">
-                    <input type="email" id="email" placeholder="Enter user email" required>
-                    <input type="submit" value="Add User">
-                </div>
-            </form>
-        </div>
-        <div class="list-section">
-            <h2>User List</h2>
-            <ul id="userList" class="user-list"></ul>
-        </div>
+        <!-- Users Section -->
+        <section id="usersSection">
+            <div class="form-section">
+                <h2>Add User</h2>
+                <form id="userForm">
+                    <div class="form-row">
+                        <input type="email" id="email" placeholder="Enter user email" required>
+                        <input type="submit" value="Add User">
+                    </div>
+                </form>
+            </div>
+            <div class="list-section">
+                <h2>User List</h2>
+                <ul id="userList" class="user-list"></ul>
+            </div>
+        </section>
+        <!-- Locations Section -->
+        <section id="locationsSection" style="display:none;">
+            <div class="form-section">
+                <h2>Add Location</h2>
+                <form id="locationForm">
+                    <div class="form-row">
+                        <input type="text" id="locationName" placeholder="Enter location name" required>
+                        <input type="submit" value="Add Location">
+                    </div>
+                </form>
+            </div>
+            <div class="list-section">
+                <h2>Location List</h2>
+                <ul id="locationList" class="user-list"></ul>
+            </div>
+        </section>
     </div>
     <script src="script.js"></script>
+    <script src="users.js"></script>
+    <script src="locations.js"></script>
 </body>
 </html>
