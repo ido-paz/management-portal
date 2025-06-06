@@ -1,9 +1,9 @@
 version: '3.8'
 services:
-  user-manager-dotnet-api:
+  users-service:
     build:
       context: ./usersService
-    image: users-service-dotnet-api
+    image: users-service
     environment:
       - PORT=3000
     ports:
@@ -11,10 +11,10 @@ services:
     volumes:
       - ./usersService/users.json:/app/users.json
       
-  locationsService-node-api:
+  locations-service:
     build:
       context: ./locationsService
-    image: locations-service-node-api
+    image: locations-service
     environment:
       - PORT=3001
     ports:
@@ -22,11 +22,12 @@ services:
     volumes:
       - ./locationsService/src/data/locations.json:/app/locations.json
       
-  user-manager-vanila-client:
+  users-locations-vanila-client:
     build:
       context: ./vanilaClient
     image: users-locations-vanila-client
     ports:
       - "8080:8080"
     depends_on:
-      - user-manager-dotnet-api
+      - locations-service
+      - users-service
