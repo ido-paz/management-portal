@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
-const usersRouter = require('./routes/users');
+const locationsRouter = require('./routes/locations');
 
 const app = express();
-let PORT = 3000;
+let PORT = 3001;
 if (process.env.PORT) {
     PORT = parseInt(process.env.PORT, 10);    
 }else if (process.argv[2]) {
@@ -28,7 +28,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use('/api/users', usersRouter);
+app.use('/api/locations', locationsRouter);
 
 app.get('/', (req, res) => {
     res.send('Express server running with CORS enabled for same domain.');
