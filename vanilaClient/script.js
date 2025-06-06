@@ -16,6 +16,19 @@ const usersSection = document.getElementById('usersSection');
 const locationsSection = document.getElementById('locationsSection');
 const showUsersLink = document.getElementById('showUsersLink');
 const showLocationsLink = document.getElementById('showLocationsLink');
+
+// Hide links by default
+if (showUsersLink) showUsersLink.style.display = 'none';
+if (showLocationsLink) showLocationsLink.style.display = 'none';
+
+// Check API connectivity and show links if available
+fetch('http://localhost:3000/api/users', { method: 'GET' })
+    .then(res => { if (res.ok && showUsersLink) showUsersLink.style.display = 'inline'; })
+    .catch(() => {});
+fetch('http://localhost:3001/api/locations', { method: 'GET' })
+    .then(res => { if (res.ok && showLocationsLink) showLocationsLink.style.display = 'inline'; })
+    .catch(() => {});
+
 if (showUsersLink && showLocationsLink && usersSection && locationsSection) {
     showUsersLink.onclick = function(e) {
         e.preventDefault();
