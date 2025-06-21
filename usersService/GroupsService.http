@@ -1,6 +1,6 @@
 @DotNetServer_HostAddress = http://localhost:3000
 
-GET {{DotNetServer_HostAddress}}/api/users/
+GET {{DotNetServer_HostAddress}}/api/groups
 Accept: application/json
 
 ###

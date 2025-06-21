@@ -12,6 +12,7 @@
          <nav style="margin-bottom: 2em;">
             <a href="#" id="showUsersLink">Users</a> 
             <a href="#" id="showLocationsLink">Locations</a>
+            <a href="#" id="showGroupsLink">Groups</a>
         </nav>
     </header>
    
@@ -48,9 +49,26 @@
                 <ul id="locationList" class="user-list"></ul>
             </div>
         </section>
+        <!-- Groups Section -->
+        <section id="groupsSection" style="display:none;">
+            <div class="form-section">
+                <h2>Add Group</h2>
+                <form id="groupForm">
+                    <div class="form-row">
+                        <input type="text" id="groupName" placeholder="Enter group name" required>
+                        <input type="submit" value="Add Group">
+                    </div>
+                </form>
+            </div>
+            <div class="list-section">
+                <h2>Group List</h2>
+                <ul id="groupList" class="user-list"></ul>
+            </div>
+        </section>
     </div>
     <script src="script.js"></script>
     <script src="users.js"></script>
     <script src="locations.js"></script>
+    <script src="groups.js"></script>
 </body>
 </html>
